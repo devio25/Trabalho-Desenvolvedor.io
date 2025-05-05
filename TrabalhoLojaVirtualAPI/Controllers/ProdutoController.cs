@@ -221,6 +221,8 @@ namespace LinkBuyApi.Controllers
                 CategoriaId = produtoInsert.CategoriaId,
             };
 
+
+
             var result = await produtoServices.AtualizarAsync(produto);
 
             if (result > 0)
