@@ -1,21 +1,23 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TrabalhoLojaVirtual.Models;
+using TrabalhoLojaVirtualLibrary.Services;
 
 namespace TrabalhoLojaVirtual.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        protected readonly ProdutoServices _produtoService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ProdutoServices produtoService)
         {
-            _logger = logger;
+            _produtoService = produtoService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var produtos = await _produtoService.ObterTodosAsync();
+            return View(produtos);
         }
 
         public IActionResult Privacy()

@@ -1,0 +1,6 @@
+@TrabalhoLojaVirtualAPI_HostAddress = http://localhost:5156
+
+GET {{TrabalhoLojaVirtualAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

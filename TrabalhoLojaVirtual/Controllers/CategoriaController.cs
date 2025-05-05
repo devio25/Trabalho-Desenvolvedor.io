@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ using TrabalhoLojaVirtualLibrary.Services;
 
 namespace TrabalhoLojaVirtualMVC.Controllers
 {
+    [Authorize]
     public class CategoriaController : Controller
     {
         private readonly CategoriaServices services;
@@ -123,19 +125,30 @@ namespace TrabalhoLojaVirtualMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            int result = 0;
             var categoria = await services.DetalheCategoria(id);
-            if (categoria != null)
+            try
             {
+                int result = 0;
                 
-                result = await services.DeletarCategoria(categoria);
-            }
+                if (categoria != null)
+                {
 
-            if (result > 0)
-            {
-                return RedirectToAction(nameof(Index));
+                    result = await services.DeletarCategoria(categoria);
+                }
+
+                if (result > 0)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+
+                return View(categoria);
             }
-            return View(categoria);
+            catch(DbUpdateException ex)
+            {
+                ModelState.AddModelError(string.Empty, "Não é possivel excluir uma categoria com um produto vinculado");
+                return View(categoria);
+            }
+            
 
         }        
     }

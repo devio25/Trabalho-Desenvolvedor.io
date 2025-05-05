@@ -18,7 +18,7 @@ namespace TrabalhoLojaVirtualLibrary.Services
             Context = context;
         }
 
-        public async Task<IEnumerable<Categoria>> ListaCategoria()
+        public async Task<IEnumerable<Categoria?>> ListaCategoria()
         {
             return await Context.Categorias.ToListAsync();
         }

@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Http;
+using Swashbuckle.AspNetCore.Annotations;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace TrabalhoLojaVirtualLibrary.Models
 {
     public class Produto
     {
+        [SwaggerIgnore]
         [Key]
         public int Id { get; set; }
 
@@ -18,9 +18,22 @@ namespace TrabalhoLojaVirtualLibrary.Models
 
         public int Estoque { get; set; }
 
+        [SwaggerIgnore]
+        [JsonIgnore]
         public string? Imagem { get; set; }
 
         public int CategoriaId { get; set; }
-        public Categoria Categoria { get; set; }
+
+        [JsonIgnore]
+        public Categoria? Categoria { get; set; }
+
+        public int VendedorId { get; set; }
+
+        [JsonIgnore]
+        public Vendedor? Vendedor { get; set; }
+
+        [NotMapped]
+        [Required(ErrorMessage = "A imagem do produto é obrigatória")]
+        public IFormFile? Upload { get; set; }
     }
 }
