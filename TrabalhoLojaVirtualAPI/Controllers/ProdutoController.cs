@@ -48,7 +48,7 @@ namespace LinkBuyApi.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet("todos-produtos")]
+        [HttpGet("todos-produtos-por-vendedor")]
         [ProducesResponseType(typeof(Produto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<Produto>> GetAllProdutosVendedor()

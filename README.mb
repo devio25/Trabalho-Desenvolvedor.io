@@ -1,79 +1,167 @@
-TrabalhoLojaVirtualMVC - Aplicação de Loja Virtual Simples com MVC e API RESTful
-1. Apresentação
-Bem-vindo ao repositório do projeto TrabalhoLojaVirtualMVC. Este projeto é uma entrega do MBA DevXpert Full Stack .NET e é referente ao módulo Introdução ao Desenvolvimento ASP.NET Core. O objetivo principal desenvolver uma aplicação de Loja Virtual que permite aos usuários criar, editar, visualizar e excluir Categorias, Produtos, tanto através de uma interface web utilizando MVC quanto através de uma API RESTful. Descreva livremente mais detalhes do seu projeto aqui.
+## 🛍️ Aplicação de Loja Virtual e API
 
-Autor(es)
-Alberto
-2. Proposta do Projeto
-O projeto consiste em:
+### 📖 Sobre o Projeto
 
-Aplicação MVC: Interface web para interação com a Loja Virtual.
-API RESTful: Exposição dos recursos do blog para integração com outras aplicações ou desenvolvimento de front-ends alternativos.
-Autenticação e Autorização: Implementação de controle de acesso, diferenciando administradores e usuários comuns.
-Acesso a Dados: Implementação de acesso ao banco de dados através de ORM.
-3. Tecnologias Utilizadas
-Linguagem de Programação: C#
-Frameworks:
-ASP.NET Core MVC
-ASP.NET Core Web API
-Entity Framework Core
-Banco de Dados: SQL Lite
-Autenticação e Autorização:
-ASP.NET Core Identity
-JWT (JSON Web Token) para autenticação na API
-Front-end:
-Razor Pages/Views
-HTML/CSS para estilização básica
-Documentação da API: Swagger
-4. Estrutura do Projeto
-A estrutura do projeto é organizada da seguinte forma:
+Este projeto foi desenvolvido como parte do **MBA DevXpert Full Stack .NET**, no **Módulo 1: Introdução ao Desenvolvimento ASP.NET Core**.
 
-src/
-TrabalhoLojaVirtual.Web/ - Projeto MVC
-TrabalhoLojaVirtual.Api/ - API RESTful
-TrabalhoLojaVirtual.Data/ - Modelos de Dados e Configuração do EF Core
-README.md - Arquivo de Documentação do Projeto
-FEEDBACK.md - Arquivo para Consolidação dos Feedbacks
-.gitignore - Arquivo de Ignoração do Git
-5. Funcionalidades Implementadas
-CRUD para Posts e Comentários: Permite criar, editar, visualizar e excluir posts e comentários.
-Autenticação e Autorização: Diferenciação entre usuários comuns e administradores.
-API RESTful: Exposição de endpoints para operações CRUD via API.
-Documentação da API: Documentação automática dos endpoints da API utilizando Swagger.
-6. Como Executar o Projeto
-Pré-requisitos
-.NET SDK 8.0 ou superior
-SQL Lite
-Visual Studio 2022 ou superior (ou qualquer IDE de sua preferência)
-Git
-Passos para Execução
-Clone o Repositório:
+O objetivo é construir uma plataforma web simples, com interface intuitiva, que permita aos usuários:
 
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
-cd nome-do-repositorio
-Configuração do Banco de Dados:
+- Registrar-se e realizar login;
+- Cadastrar, visualizar, editar e excluir **categorias** e **produtos**;
+- Consumir e manipular os dados também via **API RESTful**.
 
-No arquivo appsettings.json, configure a string de conexão do SQL Server.
-Rode o projeto para que a configuração do Seed crie o banco e popule com os dados básicos
-Executar a Aplicação MVC:
+A aplicação foi desenvolvida em **duas versões independentes**:
 
-cd src/Blog.Mvc/
-dotnet run
-Acesse a aplicação em: http://localhost:5000
-Executar a API:
+- Uma interface **web MVC** construída com ASP.NET Core MVC;
+- Uma **API RESTful** construída com ASP.NET Core Web API;
 
-cd src/Blog.Api/
-dotnet run
-Acesse a documentação da API em: http://localhost:5001/swagger
-7. Instruções de Configuração
-JWT para API: As chaves de configuração do JWT estão no appsettings.json.
-Migrações do Banco de Dados: As migrações são gerenciadas pelo Entity Framework Core. Não é necessário aplicar devido a configuração do Seed de dados.
-8. Documentação da API
-A documentação da API está disponível através do Swagger. Após iniciar a API, acesse a documentação em:
+Ambas compartilham a mesma camada de regras de negócio (`TrabalhoLojaVirtualLibrary`), mas **não se integram entre si** — ou seja, o projeto MVC não consome a API.
 
-http://localhost:5001/swagger
+---
 
-9. Avaliação
-Este projeto é parte de um curso acadêmico e não aceita contribuições externas.
-Para feedbacks ou dúvidas utilize o recurso de Issues
-O arquivo FEEDBACK.md é um resumo das avaliações do instrutor e deverá ser modificado apenas por ele.
+## 👨‍💻 Autor
+
+- **Alberto Luis Tarastchuk Borges**
+
+---
+
+## 🎯 Proposta do Projeto
+
+O projeto é composto por:
+
+- **Aplicação MVC:**  
+  Interface web da loja virtual, com operações completas de gerenciamento.
+
+- **API RESTful:**  
+  Permite integração com outros frontends e sistemas, fornecendo os mesmos recursos via endpoints.
+
+- **Autenticação e Autorização:**  
+  Sistema de login com controle de acesso para proteger rotas sensíveis.
+
+- **Acesso a Dados:**  
+  Implementado com **Entity Framework Core**, utilizando a abordagem **Code First**, com suporte a SQLite e SQL Server.
+
+---
+
+## 🧰 Tecnologias Utilizadas
+
+### 🔷 Linguagem
+- C#
+
+### 🔷 Frameworks & Bibliotecas
+- ASP.NET Core MVC
+- ASP.NET Core Web API
+- Entity Framework Core
+- ASP.NET Core Identity
+- Swagger (Swashbuckle)
+
+### 🔷 Banco de Dados
+- SQLite (default)
+- SQL Server (opcional)
+
+### 🔷 Segurança
+- Autenticação com Identity
+- API com suporte a JWT (JSON Web Token)
+
+### 🔷 Front-end
+- Razor Views
+- HTML5 / CSS3
+- Bootstrap 5
+
+---
+
+## Estrutura
+
+A estrutura do projeto está organizada da seguinte forma:
+
+## Descrição dos Projetos
+
+- **TrabalhoLojaVirtualMVC**: Projeto responsável pela interface web utilizando ASP.NET MVC.
+- **TrabalhoLojaVirtualAPI**: Projeto de API RESTful que expõe dados e funcionalidades via endpoints HTTP.
+- **TrabalhoLojaVirtualLibrary**: Biblioteca compartilhada que contém as classes de modelo, regras de negócio, DbContext e operações CRUD.
+
+## Outros Arquivos
+
+- **README.md**: Este arquivo. Documentação geral da estrutura do projeto.
+- **FEEDBACK.md**: Registro de sugestões, melhorias e observações sobre o projeto.
+- **.gitignore**: Arquivo que define os itens ignorados pelo controle de versão Git.
+
+## Funcionalidades Implementadas
+
+- **Gerenciamento de Categorias e Produtos:**  
+  Funcionalidade completa de CRUD (Criar, Ler, Atualizar e Excluir) para categorias e produtos, disponível tanto na interface web quanto na API.
+
+- **Autenticação e Autorização:**  
+  Sistema básico de controle de acesso com funcionalidades de registro e login, garantindo que apenas usuários autenticados acessem áreas protegidas.
+
+- **API RESTful:**  
+  Endpoints organizados seguindo boas práticas REST para integração com sistemas externos ou frontends independentes.
+
+- **Documentação Interativa da API:**  
+  Geração automática de documentação utilizando Swagger, permitindo visualização e testes dos endpoints diretamente pelo navegador.
+
+
+## 🚀 Como Executar o Projeto
+
+### Pré-requisitos
+
+- [.NET SDK 8.0](https://dotnet.microsoft.com/download) ou superior  
+- [SQL Server](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads)  
+- [Visual Studio 2022](https://visualstudio.microsoft.com/pt-br/) ou qualquer IDE de sua preferência  
+- [Git](https://git-scm.com/)
+
+---
+
+### 📥 Clonando o Repositório
+
+```bash
+git clone https://github.com/devio25/Trabalho-Desenvolvedor.io.git
+```
+
+---
+
+### ⚙️ Configuração do Banco de Dados
+
+No arquivo `appsettings.json`, você pode escolher o banco de dados a ser utilizado:
+
+- **SQLite (Padrão):**  
+  Já configurado por padrão. O banco será gerado automaticamente e populado com dados iniciais via Seed.
+
+- **SQL Server:**  
+  Para usar, substitua a connection string padrão pela do SQL Server no `appsettings.json`.
+
+---
+
+### 💻 Executando o Projeto MVC
+
+1. No Visual Studio, defina o projeto `TrabalhoLojaVirtualMVC` como projeto de inicialização.
+2. Execute a aplicação.
+3. Acesse via navegador: [https://localhost:7250/](https://localhost:7250/)
+
+---
+
+### 🔌 Executando a API
+
+1. No Visual Studio, defina o projeto `TrabalhoLojaVirtualAPI` como projeto de inicialização.
+2. Execute a aplicação.
+3. Acesse a documentação Swagger:  
+   [https://localhost:7047/swagger/index.html](https://localhost:7047/swagger/index.html)
+
+---
+
+## 🔐 Instruções de Configuração
+
+- **JWT (Autenticação da API):**  
+  As chaves de configuração estão no `appsettings.json`.
+
+- **Migrations (EF Core):**  
+  As migrations são gerenciadas pelo Entity Framework Core. O banco é criado automaticamente e populado via Seed — não é necessário executar comandos adicionais.
+
+---
+
+## 📚 Documentação da API
+
+A documentação da API é gerada automaticamente via Swagger.  
+Após iniciar o projeto `TrabalhoLojaVirtualAPI`, acesse:
+
+👉 [https://localhost:7047/swagger/index.html](https://localhost:7047/swagger/index.html)
