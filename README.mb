@@ -57,7 +57,6 @@ O projeto é composto por:
 
 ### 🔷 Banco de Dados
 - SQLite (default)
-- SQL Server (opcional)
 
 ### 🔷 Segurança
 - Autenticação com Identity
@@ -106,7 +105,6 @@ A estrutura do projeto está organizada da seguinte forma:
 ### Pré-requisitos
 
 - [.NET SDK 8.0](https://dotnet.microsoft.com/download) ou superior  
-- [SQL Server](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads)  
 - [Visual Studio 2022](https://visualstudio.microsoft.com/pt-br/) ou qualquer IDE de sua preferência  
 - [Git](https://git-scm.com/)
 
@@ -126,9 +124,6 @@ No arquivo `appsettings.json`, você pode escolher o banco de dados a ser utiliz
 
 - **SQLite (Padrão):**  
   Já configurado por padrão. O banco será gerado automaticamente e populado com dados iniciais via Seed.
-
-- **SQL Server:**  
-  Para usar, substitua a connection string padrão pela do SQL Server no `appsettings.json`.
 
 ---
 
